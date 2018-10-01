@@ -11,7 +11,7 @@ class ShowUsers extends Component {
 
     return (
       <div className="ShowUsers">
-        {this.props.users.map( user => <button>{user.firstname} {user.lastname}</button>)}
+        {this.props.users.map( user => <button key={user.id}>{user.firstname} {user.lastname}</button>)}
       </div>
     );
   }

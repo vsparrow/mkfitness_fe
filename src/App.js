@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import ShowUsers from './component/ShowUsers.js';
 
@@ -10,6 +10,15 @@ class App extends Component {
       api: "http://localhost:3000",
       users: [ {id: 0, "firstname": "fname", "lastname": "lname"},{id: 100, "firstname": "fname2", "lastname": "lname2"} ]
     }
+  }
+
+  componentDidMount(){
+    let source = this.state.api + "/users"
+    // fetch()
+    console.log(source);
+    fetch(source)
+    .then(res=>res.json())
+    .then(json => {console.log(json)})
   }
 
   render() {
