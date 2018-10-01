@@ -6,15 +6,10 @@ class ShowUsers extends Component {
     this.state = {
     }
   }
-  // handleClick(e){
-  //   let temp = e;
-  //   e.preventDefault();
-  //   console.log("hi");
-  //   console.log(e);
-  //   console.log(temp);
-  // }
+
   handleClick(id){
     console.log(id);
+    this.props.updateState({selectedUser : id})
   }
 
   render() {

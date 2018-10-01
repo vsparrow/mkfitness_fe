@@ -8,8 +8,13 @@ class App extends Component {
     super(props)
     this.state = {
       api: "http://localhost:3000",
-      users: [ {id: 0, "firstname": "fname", "lastname": "lname"},{id: 100, "firstname": "fname2", "lastname": "lname2"} ]
+      users: [ {id: 0, "firstname": "fname", "lastname": "lname"},{id: 100, "firstname": "fname2", "lastname": "lname2"} ],
+      selectedUser: null
     }
+  }
+  //function passed down to child to change App.js state
+  updateState(key,value){
+    this.setState(key: value)
   }
 
   componentDidMount(){
@@ -23,11 +28,12 @@ class App extends Component {
   }
 
   render() {
+    console.log(`Currently selected user is: ${this.state.selectedUser}`);
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Select a User</h1>
-          <ShowUsers users={this.state.users}/>
+          <ShowUsers users={this.state.users} updateState={this.updateState.bind(this)}/>
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
