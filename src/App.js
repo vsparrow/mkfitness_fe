@@ -29,7 +29,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(`Currently selected user is: ${this.state.selectedUser}`);
+    // console.log(`Currently selected user is: ${this.state.selectedUser}`);
     return (
       <div className="App">
         <header className="App-header">

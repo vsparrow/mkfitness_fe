@@ -8,7 +8,7 @@ class DisplayMaster extends Component {
   }
 
   messageToViewerToSelectUser(){
-    console.log(`DisplayMaster: selectedUser is ${this.props.selectedUser}`);
+    // console.log(`DisplayMaster: selectedUser is ${this.props.selectedUser}`);
     if(this.props.selectedUser == null) {return <h1>Please select a user above</h1>}
     //else call some subcomponent
     else {return <h1>Get data for user {this.props.selectedUser} here</h1>}

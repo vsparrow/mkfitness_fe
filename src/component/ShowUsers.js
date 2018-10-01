@@ -8,7 +8,7 @@ class ShowUsers extends Component {
   }
 
   handleClick(id){
-    console.log(id);
+    // console.log(id);
     this.props.updateState({selectedUser : id})
   }
 
