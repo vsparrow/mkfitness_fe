@@ -18,14 +18,15 @@ class App extends Component {
     console.log(source);
     fetch(source)
     .then(res=>res.json())
-    .then(json => {console.log(json)})
+    // .then(json => {console.log(json)})
+    .then(json => {this.setState({users: json})})
   }
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Select a User</h1>
           <ShowUsers users={this.state.users}/>
         </header>
         <p className="App-intro">
