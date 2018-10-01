@@ -15,7 +15,7 @@ class App extends Component {
   componentDidMount(){
     let source = this.state.api + "/users"
     // fetch()
-    console.log(source);
+    // console.log(source);
     fetch(source)
     .then(res=>res.json())
     // .then(json => {console.log(json)})
