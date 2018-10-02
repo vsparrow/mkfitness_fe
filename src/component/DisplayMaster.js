@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DisplaySelected from './DisplaySelected'
 
 class DisplayMaster extends Component {
   constructor(props){
@@ -11,7 +12,8 @@ class DisplayMaster extends Component {
     // console.log(`DisplayMaster: selectedUser is ${this.props.selectedUser}`);
     if(this.props.selectedUser == null) {return <h1>Please select a user above</h1>}
     //else call some subcomponent
-    else {return <h1>Get data for user {this.props.selectedUser} here</h1>}
+    // else {return <div><h1>Get data for user {this.props.selectedUser} here</h1><DisplaySelected/></div>}
+    else {return <DisplaySelected/>}
   }
 
   render() {
