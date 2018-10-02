@@ -8,6 +8,7 @@ class DisplaySelected extends Component {
   }
 
   render() {
+    console.log(this.props.selectedUser);
     return (
       <div className="DisplaySelected">
         <h1>
