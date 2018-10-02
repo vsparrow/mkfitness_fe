@@ -8,9 +8,9 @@ class DisplayMaster extends Component {
     }
   }
 
-
+  //BUTTONS ********************************************************************
   generateButtons(){
-    let buttonNames = ["elliptical","no_carb","no_sugar","lift","waist","weight"]//,
+    let buttonNames = ["ellipticals","carbs","sugars","lifts","waist_sizes","weights"]//,
     let buttons = buttonNames.map(b=>(
       <button key={b} onClick={()=>{this.handleClick(b)}}>
         {b}
@@ -20,8 +20,21 @@ class DisplayMaster extends Component {
   }
 
   handleClick(selectedItem){
+    //if waist change to waist_sizes
     console.log(selectedItem);
+    console.log(this.props.api);
+
   }
+  //end BUTTONS ********************************************************************
+
+  //fetch DATA ********************************************************************
+//   resources :ellipticals , :only => [:index, :show, :create, :update]
+// resources :sugars , :only => [:index, :show, :create, :update]
+// resources :carbs , :only => [:index, :show, :create, :update]
+// resources :weights , :only => [:index, :show, :create, :update]
+// resources :lifts , :only => [:index, :show, :create, :update]
+// resources :waist_sizes , :only => [:index, :show, :create, :update]
+  //end DATA ********************************************************************
 
   messageToViewerToSelectUser(){
     // console.log(`DisplayMaster: selectedUser is ${this.props.selectedUser}`);
