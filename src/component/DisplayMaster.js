@@ -6,6 +6,7 @@ class DisplayMaster extends Component {
     super(props)
     this.state = {
     }
+    this.handleClick = this.handleClick.bind(this)
   }
 
   //BUTTONS ********************************************************************
@@ -21,8 +22,21 @@ class DisplayMaster extends Component {
 
   handleClick(selectedItem){
     //if waist change to waist_sizes
+    console.log("handleClick************************");
+    console.log(this.state);
     console.log(selectedItem);
     console.log(this.props.api);
+    if(selectedItem in this.state){
+      //display from state
+      console.log("displaying from state");
+    }
+    else{
+      //need to fetch
+      //need
+      console.log("need to fetch");
+      //then add to state
+      this.setState({[selectedItem]: "SomeData"})
+    }
 
   }
   //end BUTTONS ********************************************************************
