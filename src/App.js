@@ -34,7 +34,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Select a User</h1>
-          <ShowUsers users={this.state.users} updateState={this.updateState.bind(this)}/>
+          <ShowUsers users={this.state.users} updateState={this.updateState.bind(this)} />
         </header>
         <DisplayMaster selectedUser={this.state.selectedUser} api={this.state.api}/>
       </div>
