@@ -10,22 +10,29 @@ class DisplayMaster extends Component {
     this.handleClick = this.handleClick.bind(this) //need this else es6 functions don't have this level "this"
   }
 
+  // componentDidMount(){
+  //   //if user does not exist in this state add
+  //   if(!(this.props.selectedUser in this.state.users)){
+  //     const userid = this.props.selectedUser
+  //     //change to Spread operator here
+  //     let users=Object.assign({},this.state.users)
+  //     users[userid] = {}
+  //     this.setState({users: users}) //could also user just {users}
+  //     console.log("nothing here");
+  //   }
+  //   //else do nothing
+  // }
   componentDidUpdate(){
     //if user does not exist in this state add
     if(!(this.props.selectedUser in this.state.users)){
       const userid = this.props.selectedUser
-      // this.setState({users[this.props.selectedUser]: {}})
-      // this.setState({users[userid]: {}})
       //change to Spread operator here
       let users=Object.assign({},this.state.users)
       users[userid] = {}
-      this.setState({users: users}) //could also user just {users}   
+      this.setState({users: users}) //could also user just {users}
       console.log("nothing here");
     }
     //else do nothing
-    else {
-      console.log("weird");
-    }
   }
 
   //BUTTONS ********************************************************************
@@ -45,7 +52,8 @@ class DisplayMaster extends Component {
     // console.log(this.state);
     // console.log(selectedItem);
     // console.log(this.props.api);
-    if(selectedItem in this.state){
+    if(this.state.users[this.props.selectedUser] && (selectedItem in this.state.users[this.props.selectedUser])){
+    // if(selectedItem in this.state.selectedUser){
       //display from state
       console.log("displaying from state");
       console.log(this.state);
@@ -54,7 +62,8 @@ class DisplayMaster extends Component {
       //need to fetch
       //need
       console.log("need to fetch");
-
+      // console.log(this.state.selectedUser);
+      // console.log((selectedItem in this.state.selectedUser));
       //then add to state
       // this.setState({[selectedItem]: "SomeData"})
       // this.setState({[selectedItem]: this.getData(selectedItem)})
@@ -76,8 +85,19 @@ class DisplayMaster extends Component {
     console.log(url);
     fetch(url)
     .then(res=>res.json())
-    .then(res=> (this.setState({[selectedItem]: res},()=>{console.log(this.state)}))   )
+    // .then(res=> (this.setState({[selectedItem]: res},()=>{console.log(this.state)}))   )
+    .then(res=>this.setData(selectedItem,res))
     //return data
+  }
+
+  setData(selectedItem,data){
+    console.log("INSIDE setData");
+    // console.log(this.state);
+    // console.log(data);
+    //update to spead
+    let users = this.state.users
+    users[this.props.selectedUser][selectedItem] = data
+    this.setState({users},()=>{console.log(this.state);})
   }
   //end DATA ********************************************************************
 
