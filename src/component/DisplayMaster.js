@@ -5,7 +5,8 @@ class DisplayMaster extends Component {
   constructor(props){
     super(props)
     this.state = {
-      users : {}
+      users : {},
+      selectedItem: null
     }
     this.handleClick = this.handleClick.bind(this) //need this else es6 functions don't have this level "this"
   }
@@ -31,8 +32,10 @@ class DisplayMaster extends Component {
       users[userid] = {}
       this.setState({users: users}) //could also user just {users}
       // console.log("nothing here");
+      console.log(this.state);
     }
     //else do nothing
+
   }
 
   //BUTTONS ********************************************************************
@@ -57,6 +60,7 @@ class DisplayMaster extends Component {
       //display from state
       // console.log("displaying from state");
       // console.log(this.state);
+      this.setState({selectedItem})
     }
     else{
       //need to fetch
@@ -98,7 +102,7 @@ class DisplayMaster extends Component {
     let users = this.state.users
     users[this.props.selectedUser][selectedItem] = data
     // this.setState({users},()=>{console.log(this.state);})
-    this.setState({users})
+    this.setState({users : users, selectedItem: selectedItem},()=>{console.log(this.state);})
   }
   //end DATA ********************************************************************
 
