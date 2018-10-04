@@ -30,7 +30,7 @@ class DisplayMaster extends Component {
       let users=Object.assign({},this.state.users)
       users[userid] = {}
       this.setState({users: users}) //could also user just {users}
-      console.log("nothing here");
+      // console.log("nothing here");
     }
     //else do nothing
   }
@@ -55,13 +55,13 @@ class DisplayMaster extends Component {
     if(this.state.users[this.props.selectedUser] && (selectedItem in this.state.users[this.props.selectedUser])){
     // if(selectedItem in this.state.selectedUser){
       //display from state
-      console.log("displaying from state");
-      console.log(this.state);
+      // console.log("displaying from state");
+      // console.log(this.state);
     }
     else{
       //need to fetch
       //need
-      console.log("need to fetch");
+      // console.log("need to fetch");
       // console.log(this.state.selectedUser);
       // console.log((selectedItem in this.state.selectedUser));
       //then add to state
@@ -82,7 +82,7 @@ class DisplayMaster extends Component {
 // resources :waist_sizes , :only => [:index, :show, :create, :update]
   getData(selectedItem){
     let url = this.props.api + "/users/" + this.props.selectedUser + "/" + selectedItem
-    console.log(url);
+    // console.log(url);
     fetch(url)
     .then(res=>res.json())
     // .then(res=> (this.setState({[selectedItem]: res},()=>{console.log(this.state)}))   )
@@ -91,13 +91,14 @@ class DisplayMaster extends Component {
   }
 
   setData(selectedItem,data){
-    console.log("INSIDE setData");
+    // console.log("INSIDE setData");
     // console.log(this.state);
     // console.log(data);
     //update to spead
     let users = this.state.users
     users[this.props.selectedUser][selectedItem] = data
-    this.setState({users},()=>{console.log(this.state);})
+    // this.setState({users},()=>{console.log(this.state);})
+    this.setState({users})
   }
   //end DATA ********************************************************************
 
