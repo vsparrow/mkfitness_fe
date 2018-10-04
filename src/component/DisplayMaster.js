@@ -102,7 +102,8 @@ class DisplayMaster extends Component {
     let users = this.state.users
     users[this.props.selectedUser][selectedItem] = data
     // this.setState({users},()=>{console.log(this.state);})
-    this.setState({users : users, selectedItem: selectedItem},()=>{console.log(this.state);})
+    // this.setState({users : users, selectedItem: selectedItem},()=>{console.log(this.state);})
+    this.setState({users : users, selectedItem: selectedItem})
   }
   //end DATA ********************************************************************
 
@@ -112,7 +113,7 @@ class DisplayMaster extends Component {
     //else call some subcomponent
     // else {return <div><h1>Get data for user {this.props.selectedUser} here</h1><DisplaySelected/></div>}
     // else {return <DisplaySelected selectedUser={this.props.selectedUser}/>}
-    else {return <div>{this.generateButtons()}<DisplaySelected selectedUser={this.props.selectedUser}/></div>}
+    else {return <div>{this.generateButtons()}<DisplaySelected selectedUser={this.props.selectedUser} selectedItem={this.state.selectedItem} users={this.state.users}/></div>}
   }
 
   render() {

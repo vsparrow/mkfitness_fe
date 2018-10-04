@@ -9,8 +9,14 @@ class DisplaySelected extends Component {
     }
   }
 
+  //may not need later
+  componentDidUpdate(){
+    console.log("props is");
+    console.log(this.props);
+  }
+
   render() {
-    console.log(this.props.selectedUser);
+    // console.log( "selecteduser is" + this.props.selectedUser);
     //labels is the x axis
     //datasets additional chart information
       //label is the name for the entire dataset
